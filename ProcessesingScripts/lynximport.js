@@ -19,7 +19,7 @@ exports.Process = function(page){
 			var replacement = fs.readFileSync(path);
 			try{
 				replacement = replacement.toString();
-				replacement = jsdom(replacement);
+				replacement = document.createTextNode(replacement);
 				var toreplace = list[i];
 				var parent = toreplace.parentNode;
 				parent.replaceChild(replacement, toreplace);
