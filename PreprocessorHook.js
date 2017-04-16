@@ -6,11 +6,11 @@ exports.init=function(){
 	test.loadSettings = function(){
 		console.log("Loading settings lol");
 		test.originalloadSettings();
-		console.log("Modified Version:");
-		console.log(test.loadSettings.toString());
-		console.log("Original Version:");
-		console.log(test.originalloadSettings.toString());
 	}
+	console.log("Modified Version:");
+	console.log(test.loadSettings.toString());
+	console.log("Original Version:");
+	console.log(test.originalloadSettings.toString());
 }
 
 /*
