@@ -19,7 +19,8 @@ exports.Process = function(somestring){
 var Scripts = [];
 ProcessingScripts.forEach(function(file){
 	try{
-		var required = require(ScriptsPath + file);
+		var fullpath = ScriptsPath + file + ".js";
+		var required = require(fullpath);
 		if(typeof required.Process != 'function'){
 			console.log(file+ " script doesnt contain a Process function");
 		}
