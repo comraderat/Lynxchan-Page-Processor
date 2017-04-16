@@ -24,7 +24,7 @@ ProcessingScripts.forEach(function(file){
 		if(typeof required.Process != 'function'){
 			console.log(file+ " script doesnt contain a Process function");
 		}
-		else{Scripts.append(required)}
+		else{Scripts.push(required)}
 	}catch(err){
 		console.log(file+ " script not found or not valid.");
 	}
