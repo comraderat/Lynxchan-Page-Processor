@@ -1,4 +1,4 @@
 exports.Process = function(page){
-	console.log(page);
+	page = page.ToUpperCase();
 	return page;
 }
