@@ -18,11 +18,13 @@ exports.Process = function(somestring){
 
 var Scripts = [];
 ProcessingScripts.forEach(function(file){
+	Scripts.append(require(ScriptsPath + file));
+	/*
 	try{
 		Scripts.append([file, require(ScriptsPath + file)]);
 	}catch{
 		console.log(file+ " script not found.");
-	}
+	}*/
 });
 
 var templatehandler = require("../engine/templateHandler.js");
