@@ -1,6 +1,14 @@
 'use strict';
 
-
+var templatehandler = require("../engine/templateHandler.js");
+var originalprocesspage; 
+exports.init = function(){
+	originalprocesspage = templatehandler.processPage;
+	templatehandler.processPage = function(errors, page){
+		debugger;
+		originalprocesspage(errors, page);
+	}
+}
 
 /* //Original Testcode
 var A = require("../addons/testbehaviourA.js");
