@@ -1,7 +1,7 @@
 'use strict';
 debugger;
 //Add scripts in order.
-var ProcessingScripts = ["test"];
+var ProcessingScripts = ["Example", "AllUppercase"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
 
 /*
@@ -18,10 +18,12 @@ exports.Process = function(somestring){
 
 var Scripts = [];
 ProcessingScripts.forEach(function(file){
-	//Scripts.append(require(ScriptsPath + file));
-	
 	try{
-		Scripts.append([file, require(ScriptsPath + file)]);
+		var required = require(ScriptsPath + file);
+		if(typeof required.Process != 'function'){
+			console.log(file+ " script doesnt contain a Process function");
+		}
+		else{Scripts.append(required)}
 	}catch(err){
 		console.log(file+ " script not found.");
 	}
