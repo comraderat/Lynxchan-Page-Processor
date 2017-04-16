@@ -1,6 +1,6 @@
 'use strict';
 //Add scripts in order.
-var ProcessingScripts = ["AddComment"];
+var ProcessingScripts = ["lynximport"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
 
 /*
