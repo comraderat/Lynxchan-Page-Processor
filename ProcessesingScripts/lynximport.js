@@ -4,7 +4,7 @@ exports.Process = function(page){
 
 	var xml = xmltojs.parseString(page, function(err, result){
 		var lol =1;
-	}
+	});
 
 	return page;
 }
