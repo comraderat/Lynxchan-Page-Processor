@@ -1,5 +1,5 @@
 'use strict';
-
+debugger;
 //Add scripts in order.
 var ProcessingScripts = ["test"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
