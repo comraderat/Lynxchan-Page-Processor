@@ -1,4 +1,5 @@
 var fePath = "../../../fe";
+var fs = require('fs');
 
 
 exports.Process = function(page){
