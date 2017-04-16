@@ -1,7 +1,7 @@
 var templatehandler
 
 exports.Process = function(page){
-	debugger;
+	
 	var jsdom = require('jsdom').jsdom;
 	var serializer = require('jsdom').serializeDocument;
 
