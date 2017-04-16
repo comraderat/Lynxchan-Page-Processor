@@ -7,9 +7,10 @@ exports.Process = function(page){
 
 	var document = jsdom(page);
 
-	var list = document.getElementsByTagName("div");
+	var list = document.getElementsByTagName("lynximport");
 	
 	for(var i =0 ; i<list.length; i++){
+		debugger;
 		var path = list[i].getAttribute("path");
 		try{
 			var replacement = fs.readFileSync(path);
