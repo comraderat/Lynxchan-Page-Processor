@@ -20,7 +20,10 @@ exports.Process = function(page){
 			try{
 				replacement = replacement.toString();
 				replacement = jsdom(replacement);
-				list[i].parentNode.replaceChild(replacement, list[i]);
+				var toreplace = list[i];
+				var parent = toreplace.parentNode;
+				parent.replaceChild(replacement, toreplace);
+				//list[i].parentNode.replaceChild(replacement, list[i]);
 			}catch(err){
 				console.log("Couldn't make html from loaded file");
 				debugger;
