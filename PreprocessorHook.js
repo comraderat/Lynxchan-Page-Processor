@@ -1,6 +1,6 @@
 'use strict';
 //Add scripts in order.
-var ProcessingScripts = ["AllUppercase"];
+var ProcessingScripts = ["AddComment"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
 
 /*
