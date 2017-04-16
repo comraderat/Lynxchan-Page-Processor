@@ -1,26 +1,41 @@
 'use strict';
 
+//Add scripts in order.
+var ProcessingScripts = ["test"];
+var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
+
+/*
+The script should have the function "Process(string)" with a return type of string. Like so
+exports.Process = function(somestring){
+	//do stuff
+	return somestring;
+}
+*/
+
+
+
+//------------------------------------------------------------------
+
+var Scripts = [];
+ProcessingScripts.forEach(function(file){
+	Scripts.append(require(ScriptsPath + file));
+});
+
 var templatehandler = require("../engine/templateHandler.js");
 var originalprocesspage; 
+
 exports.init = function(){
-	console.log("Initialisaing preprocessorhook");
 	originalprocesspage = templatehandler.processPage;
+
+
 	templatehandler.processPage = function(errors, page){
+
 		debugger;
 		originalprocesspage(errors, page);
-		console.log(templatehandler[page.template].toString());
+
+		Scripts.forEach(function(script){
+			page.template = script.Process(page.template);
+		});
+
 	}
 }
-
-/* //Original Testcode
-var A = require("../addons/testbehaviourA.js");
-var B = require("../addons/testbehaviourB.js");
-
-exports.init= function(){
-	console.log("Test hook is initialising");
-	A.behaviour();
-	B.behaviour = function(){
-		console.log("Modified behaviour");	
-	};
-	A.behaviour();
-};*/
