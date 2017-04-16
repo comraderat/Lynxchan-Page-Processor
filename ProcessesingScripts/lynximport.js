@@ -4,11 +4,11 @@ exports.Process = function(page){
 
 	var document = jsdom(page);
 
-	var list = document.getElementsByTagName("p");
+	var list = document.getElementsByTagName("div");
 	
-	list.keys.forEach(function(value){
+	for(var i =0 ; i<list.length; i++){
 		
-	});
+	}
 	
 	return page;
 }
