@@ -1,7 +1,7 @@
 'use strict';
 
-var A = require("testbehaviourA.js");
-var B = require("testbehaviourB.js");
+var A = require("../addons/testbehaviourA.js");
+var B = require("../addons/testbehaviourB.js");
 
 exports.init= function(){
 	console.log("Test hook is initialising");
