@@ -40,10 +40,10 @@ exports.init = function(){
 
 		debugger;
 		originalprocesspage(errors, page);
-		console.log(this[page.template]);
+		var pagestring = this[page.template].toString('utf8');
 		Scripts.forEach(function(script){
-			this[page.template] = script.Process(this[page.template]);
+			pagestring = script.Process(pagestring);
 		});
-
+		this[page.template] = Buffer.from(pagestring, 'utf8');
 	}
 }
