@@ -14,18 +14,19 @@ exports.Process = function(page){
 		var path = list[i].getAttribute("path");
 		try{
 			var replacement = fs.readFileSync(path);
+			try{
+				replacement = replacement.toString();
+				replacement = jsdom(replacement);
+				list[i].parentNode.replaceChild(replacement, list[i]);
+			}catch(err){
+				console.log("Couldn't make html from loaded file");
+				debugger;
+			}
+
 		}catch(err){
 			console.log("Couldn't find file: " + path.toString());
 			debugger;
 		}
-		try{
-			replacement = replacement.toString();
-			replacement = jsdom(replacement);
-		}catch(err){
-			console.log("Couldn't make html from loaded file");
-			debugger;
-		}
-		list[i].parentNode.replaceChild(replacement, list[i]);
 	}
 	return serializer(document);
 }
