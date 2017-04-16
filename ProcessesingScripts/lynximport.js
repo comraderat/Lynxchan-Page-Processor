@@ -4,9 +4,9 @@ exports.Process = function(page){
 
 	var document = jsdom(page);
 
-	var list = document.getElementsByTagName("lynximport");
+	var list = document.getElementsByTagName("p");
 	
-	list.forEach(function(value){
+	list.keys.forEach(function(value){
 		
 	});
 	
