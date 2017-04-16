@@ -25,6 +25,7 @@ ProcessingScripts.forEach(function(file){
 		}
 		else{Scripts.push(required)}
 	}catch(err){
+		debugger;
 		console.log(file+ " script not found or not valid.");
 	}
 });
