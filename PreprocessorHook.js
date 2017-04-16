@@ -3,6 +3,7 @@
 var templatehandler = require("../engine/templateHandler.js");
 var originalprocesspage; 
 exports.init = function(){
+	console.log("Initialisaing preprocessorhook");
 	originalprocesspage = templatehandler.processPage;
 	templatehandler.processPage = function(errors, page){
 		debugger;
