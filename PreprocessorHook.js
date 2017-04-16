@@ -26,7 +26,7 @@ ProcessingScripts.forEach(function(file){
 		}
 		else{Scripts.append(required)}
 	}catch(err){
-		console.log(file+ " script not found.");
+		console.log(file+ " script not found or not valid.");
 	}
 });
 
