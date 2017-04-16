@@ -35,7 +35,7 @@ exports.Process = function(page){
 		}
 	}
 	if(didedit){
-		return Process(serializer(document));
+		return this.Process(serializer(document));
 	}
 	return serializer(document);
 }
