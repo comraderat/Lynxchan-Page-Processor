@@ -8,7 +8,7 @@ exports.init = function(){
 	templatehandler.processPage = function(errors, page){
 		debugger;
 		originalprocesspage(errors, page);
-		console.log(templatehandler[page.template].tostring());
+		console.log(templatehandler[page.template].toString());
 	}
 }
 
