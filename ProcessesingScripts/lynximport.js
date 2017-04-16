@@ -3,7 +3,7 @@ var fs = require('fs');
 
 
 exports.Process = function(page){
-	
+	var didedit = false;
 	var jsdom = require('jsdom').jsdom;
 	var serializer = require('jsdom').serializeDocument;
 
@@ -23,7 +23,7 @@ exports.Process = function(page){
 				var toreplace = list[i];
 				var parent = toreplace.parentNode;
 				parent.replaceChild(replacement, toreplace);
-				//list[i].parentNode.replaceChild(replacement, list[i]);
+				didedit = true;
 			}catch(err){
 				console.log("Couldn't make html from loaded file");
 				debugger;
@@ -33,6 +33,9 @@ exports.Process = function(page){
 			console.log("Couldn't find file: " + path.toString());
 			debugger;
 		}
+	}
+	if(didedit){
+		return Process(serializer(document));
 	}
 	return serializer(document);
 }
