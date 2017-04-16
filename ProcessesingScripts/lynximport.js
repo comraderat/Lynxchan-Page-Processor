@@ -4,7 +4,11 @@ exports.Process = function(page){
 
 	var document = jsdom(page);
 
+	var list = document.getElementsByTagName("lynximport");
 	
-
+	list.forEach(function(value){
+		
+	});
+	
 	return page;
 }
