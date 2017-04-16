@@ -1,4 +1,5 @@
-var templatehandler = require("../engine/templateHandler.js");
+var fePath = "../../../fe";
+
 
 exports.Process = function(page){
 	
@@ -12,7 +13,7 @@ exports.Process = function(page){
 	for(var i =0 ; i<list.length; i++){
 		debugger;
 		var path = list[i].getAttribute("path");
-		path = templatehandler.fePath + path;
+		path = fePath + path;
 		try{
 			var replacement = fs.readFileSync(path);
 			try{
