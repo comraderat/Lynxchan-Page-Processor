@@ -1,4 +1,4 @@
-var templatehandler
+var templatehandler = require("../engine/templateHanler.js");
 
 exports.Process = function(page){
 	
@@ -12,6 +12,7 @@ exports.Process = function(page){
 	for(var i =0 ; i<list.length; i++){
 		debugger;
 		var path = list[i].getAttribute("path");
+		path = templatehandler.fePath + path;
 		try{
 			var replacement = fs.readFileSync(path);
 			try{
