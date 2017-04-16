@@ -37,7 +37,7 @@ exports.init = function(){
 
 
 	templatehandler.processPage = function(errors, page){
-		debugger;
+		
 		originalprocesspage(errors, page);
 		var pagestring = this[page.template].toString('utf8');
 		Scripts.forEach(function(script){
