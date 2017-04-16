@@ -1,11 +1,10 @@
 exports.Process = function(page){
 	debugger;
-	var xmltojs = require('xml2js');
+	var jsdom = require('jsdom').jsdom;
 
-	xmltojs.parseString(page, function(err, result){
-		debugger;		
-		var lol =1;
-	});
+	var document = jsdom(page);
+
+	
 
 	return page;
 }
