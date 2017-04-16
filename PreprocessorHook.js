@@ -1,5 +1,4 @@
 'use strict';
-debugger;
 //Add scripts in order.
 var ProcessingScripts = ["Example", "AllUppercase"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
@@ -41,7 +40,7 @@ exports.init = function(){
 
 		debugger;
 		originalprocesspage(errors, page);
-
+		console.log(page.template);
 		Scripts.forEach(function(script){
 			page.template = script.Process(page.template);
 		});
