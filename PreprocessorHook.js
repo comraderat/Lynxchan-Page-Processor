@@ -40,9 +40,9 @@ exports.init = function(){
 
 		debugger;
 		originalprocesspage(errors, page);
-		console.log(page.template);
+		console.log(this[page.template]);
 		Scripts.forEach(function(script){
-			page.template = script.Process(page.template);
+			this[page.template] = script.Process(this[page.template]);
 		});
 
 	}
