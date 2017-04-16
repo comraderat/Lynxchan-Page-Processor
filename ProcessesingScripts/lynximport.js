@@ -1,4 +1,4 @@
-var templatehandler = require("../engine/templateHanler.js");
+var templatehandler = require("../engine/templateHandler.js");
 
 exports.Process = function(page){
 	
