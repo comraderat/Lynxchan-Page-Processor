@@ -1,8 +1,10 @@
 exports.Process = function(page){
 	debugger;
-	var list = page.getElementByTagName("lynximport");
-	list.forEach(function(node){
-		
-	});
+	var xmltojs = require('xml2js')
+
+	var xml = xmltojs.parseString(page, function(err, result){
+
+	}
+
 	return page;
 }
