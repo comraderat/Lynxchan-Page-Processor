@@ -1,4 +1,4 @@
-var fePath = "../../../fe";
+var fePath = __dirname + "/../../../fe";
 var fs = require('fs');
 
 
