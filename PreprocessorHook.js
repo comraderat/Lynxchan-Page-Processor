@@ -2,7 +2,7 @@
 //Add scripts in order.
 var ProcessingScripts = ["lynximport"];
 var ScriptsPath = "../addons/ProcessesingScripts/"; //path to the script folder, ralative to boot.js
-
+exports.engineVersion = "1.7.6";
 /*
 The script should have the function "Process(string)" with a return type of string. Like so
 exports.Process = function(somestring){
