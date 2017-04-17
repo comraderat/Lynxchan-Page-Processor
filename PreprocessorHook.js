@@ -31,19 +31,20 @@ ProcessingScripts.forEach(function(file){
 });
 
 var templatehandler = require("../engine/templateHandler.js");
-var originalprocesspage; 
+var originalTestPageFields; 
 
 exports.init = function(){
-	originalprocesspage = templatehandler.processPage;
+	originalTestPageFields = templatehandler.testPageFields;
 
 
-	templatehandler.processPage = function(errors, page){
+	templatehandler.testPageFields = function(document, page, errors){
 		
-		originalprocesspage(errors, page);
 		var pagestring = this[page.template].toString('utf8');
 		Scripts.forEach(function(script){
 			pagestring = script.Process(pagestring);
 		});
 		this[page.template] = Buffer.from(pagestring, 'utf8');
+		document = require('jsdom').jsdom(this[page.template]);
+		return originalTestPageFields(document, page, errors);
 	}
 }
