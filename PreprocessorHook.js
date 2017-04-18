@@ -31,12 +31,29 @@ ProcessingScripts.forEach(function(file){
 });
 
 var templatehandler = require("../engine/templateHandler.js");
-var originalTestPageFields; 
+var statichandler = require("../engine/staticHandler.js");
+var miscOps = require("../engine/miscOps.js");
+
+var originalTestPageFields;
+var originalStaticCompress;
 
 exports.init = function(){
 	originalTestPageFields = templatehandler.testPageFields;
+	originalStaticCompress = statichandler.compress;
 
+	//static file processing (called upon first request of files)
+	statichandler.compress = function(pathName, file, mime, callback){
+		if(miscOps.isPlainText(mime)){
+			var pagestring = file.content.toString('utf8');
+			Scripts.forEach(function(script){
+				pagestring = script.Process(pagestring);
+			});
+			file.content = Buffer.from(pagestring, 'utf8');
+		}
+		originalStaticCompress(pathName, file, mime, callback);
+	}
 
+	//template page processing (called on build)
 	templatehandler.testPageFields = function(document, page, errors){
 		
 		var pagestring = this[page.template].toString('utf8');
