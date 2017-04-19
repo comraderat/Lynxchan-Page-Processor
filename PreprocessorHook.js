@@ -43,12 +43,16 @@ exports.init = function(){
 
 	//static file processing (called upon first request of files)
 	statichandler.compress = function(pathName, file, mime, callback){
-		if(miscOps.isPlainText(mime)){
-			var pagestring = file.content.toString('utf8');
-			Scripts.forEach(function(script){
-				pagestring = script.Process(pagestring);
-			});
-			file.content = Buffer.from(pagestring, 'utf8');
+		if(pathName.length > 4){
+			if(pathName.slice(-5) == ".html"){			
+				if(miscOps.isPlainText(mime)){
+					var pagestring = file.content.toString('utf8');
+					Scripts.forEach(function(script){
+						pagestring = script.Process(pagestring);
+					});
+					file.content = Buffer.from(pagestring, 'utf8');
+				}
+			}
 		}
 		originalStaticCompress(pathName, file, mime, callback);
 	}
